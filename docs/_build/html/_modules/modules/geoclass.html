@@ -1,0 +1,189 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>modules.geoclass &#8212; geometry_app 1.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css" />
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for modules.geoclass</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">classes for geometry app</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<div class="viewcode-block" id="Point"><a class="viewcode-back" href="../../src/modules.html#modules.geoclass.Point">[docs]</a><span class="k">class</span> <span class="nc">Point</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This is a Point Class</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>  <span class="c1">#pylint .....</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span>
+
+<div class="viewcode-block" id="Point.falls_in_rectangle"><a class="viewcode-back" href="../../src/modules.html#modules.geoclass.Point.falls_in_rectangle">[docs]</a>    <span class="k">def</span> <span class="nf">falls_in_rectangle</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rectangle</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This method takes a rectangle object as the argument and returns</span>
+<span class="sd">        True or False if the Point object falls inside the Rectangle object</span>
+<span class="sd">        :param rectangle: Rectangle object with lower left and upper left Point objects</span>
+<span class="sd">        :type rectangle: Rectangle</span>
+<span class="sd">        :return: True or False</span>
+<span class="sd">        :rtype: Boolean</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">rectangle</span><span class="o">.</span><span class="n">point1</span><span class="o">.</span><span class="n">x</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">&lt;</span> <span class="n">rectangle</span><span class="o">.</span><span class="n">point2</span><span class="o">.</span><span class="n">x</span> \
+                <span class="ow">and</span> <span class="n">rectangle</span><span class="o">.</span><span class="n">point1</span><span class="o">.</span><span class="n">y</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">&lt;</span> <span class="n">rectangle</span><span class="o">.</span><span class="n">point2</span><span class="o">.</span><span class="n">y</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">return</span> <span class="kc">False</span></div>
+
+<div class="viewcode-block" id="Point.dummy_method"><a class="viewcode-back" href="../../src/modules.html#modules.geoclass.Point.dummy_method">[docs]</a>    <span class="k">def</span> <span class="nf">dummy_method</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        this is a dummy method</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span></div></div>
+
+
+<div class="viewcode-block" id="Rectangle"><a class="viewcode-back" href="../../src/modules.html#modules.geoclass.Rectangle">[docs]</a><span class="k">class</span> <span class="nc">Rectangle</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This is a rectangle class</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">point1</span><span class="p">,</span> <span class="n">point2</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">point1</span> <span class="o">=</span> <span class="n">point1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">point2</span> <span class="o">=</span> <span class="n">point2</span>
+
+<div class="viewcode-block" id="Rectangle.area"><a class="viewcode-back" href="../../src/modules.html#modules.geoclass.Rectangle.area">[docs]</a>    <span class="k">def</span> <span class="nf">area</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This method calculates the area of the rectangle object and returns a float</span>
+<span class="sd">        :param self: rectangle object consisting of two point objects</span>
+<span class="sd">        :type self: Rectangle</span>
+<span class="sd">        :return: float calculation of area of rectangle</span>
+<span class="sd">        :rtype: float</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">point2</span><span class="o">.</span><span class="n">x</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">point1</span><span class="o">.</span><span class="n">x</span><span class="p">)</span> <span class="o">*</span> \
+               <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">point2</span><span class="o">.</span><span class="n">y</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">point1</span><span class="o">.</span><span class="n">y</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Rectangle.dummy_method"><a class="viewcode-back" href="../../src/modules.html#modules.geoclass.Rectangle.dummy_method">[docs]</a>    <span class="k">def</span> <span class="nf">dummy_method</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        this is a dummy method</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span></div></div>
+
+<div class="viewcode-block" id="GuiRectangle"><a class="viewcode-back" href="../../src/modules.html#modules.geoclass.GuiRectangle">[docs]</a><span class="k">class</span> <span class="nc">GuiRectangle</span><span class="p">(</span><span class="n">Rectangle</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This method takes a guirectangle object as the argument and returns</span>
+<span class="sd">    True or False if the Point object falls inside the Rectangle object</span>
+<span class="sd">    :param rectangle: Rectangle object with lower left and upper left Point objects</span>
+<span class="sd">    :type rectangle: GuiRectangle</span>
+<span class="sd">    :return: True or False</span>
+<span class="sd">    :rtype: Boolean</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+<div class="viewcode-block" id="GuiRectangle.draw"><a class="viewcode-back" href="../../src/modules.html#modules.geoclass.GuiRectangle.draw">[docs]</a>    <span class="k">def</span> <span class="nf">draw</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">canvas</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This is a draw method</span>
+<span class="sd">        :param canvas:</span>
+<span class="sd">        :return: turtle</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># do not write to screen</span>
+        <span class="n">canvas</span><span class="o">.</span><span class="n">penup</span><span class="p">()</span>
+
+        <span class="c1"># move pen to the point coordinates</span>
+        <span class="n">canvas</span><span class="o">.</span><span class="n">goto</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">point1</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">point1</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+
+        <span class="c1"># start writing to screen</span>
+        <span class="n">canvas</span><span class="o">.</span><span class="n">pendown</span><span class="p">()</span>
+
+        <span class="n">canvas</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">point2</span><span class="o">.</span><span class="n">x</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">point1</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
+        <span class="n">canvas</span><span class="o">.</span><span class="n">left</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+        <span class="n">canvas</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">point2</span><span class="o">.</span><span class="n">y</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">point1</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+        <span class="n">canvas</span><span class="o">.</span><span class="n">left</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+        <span class="n">canvas</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">point2</span><span class="o">.</span><span class="n">x</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">point1</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
+        <span class="n">canvas</span><span class="o">.</span><span class="n">left</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+        <span class="n">canvas</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">point2</span><span class="o">.</span><span class="n">y</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">point1</span><span class="o">.</span><span class="n">y</span><span class="p">)</span></div></div>
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">geometry_app</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../src/modules.html">modules package</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022, sgchopkins8043.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.4.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>
