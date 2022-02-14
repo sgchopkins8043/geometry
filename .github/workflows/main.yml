@@ -23,8 +23,6 @@ jobs:
         strategy:
             matrix:
                 python-version:
-                    - 3.6
-                    - 3.7
                     - 3.8
                     - 3.9
 
@@ -40,4 +38,6 @@ jobs:
                     if [ -f requirements-dev.txt ]; then pip install -r requirements-dev.txt; fi
             -   name: Lint with pylint
                 run: |
-                    pylint ./
+                    pylint main.py
+                    pylint --good-names="x, y" tests/
+                    pylint --good-names="x, y" modules/
