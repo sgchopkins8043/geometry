@@ -1,4 +1,4 @@
-name: Unit-Testing, Coverage, Linting
+name: Unit-Testing, Linting
 
 on:
     push:
@@ -38,11 +38,6 @@ jobs:
                 run: |
                     python -m pip install --upgrade pip setuptools wheel
                     if [ -f requirements-dev.txt ]; then pip install -r requirements-dev.txt; fi
-            -   name: Test with pytest and coverage
-                run: |
-                    coverage erase
-                    coverage run
-                    coverage report
             -   name: Lint with pylint
                 run: |
                     pylint ./
