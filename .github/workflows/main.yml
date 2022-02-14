@@ -3,17 +3,9 @@ name: Unit-Testing, Linting
 on:
     push:
         branches:
-            - main
-            - develop
-            - feature/*
-            - bug/*
             - master
     pull_request:
         branches:
-            - main
-            - develop
-            - feature/*
-            - bug/*
             - master
 
 jobs:
@@ -38,6 +30,6 @@ jobs:
                     if [ -f requirements-dev.txt ]; then pip install -r requirements-dev.txt; fi
             -   name: Lint with pylint
                 run: |
-                    pylint main.py
-                    pylint --good-names="x, y" tests/
-                    pylint --good-names="x, y" modules/
+                    pylint --rcfile=.pylintrc main.py
+                    pylint --rcfile=.pylintrc --good-names="x, y" tests/
+                    pylint --rcfile=.pylintrc --good-names="x, y" modules/
